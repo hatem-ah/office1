@@ -135,4 +135,19 @@ class contr_admin {
         header('Content-Type: application/json');
         echo json_encode($response);
     }
+
+    public function check_admin()
+    {
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        var_dump($this->model->check_admin($email,$password));
+        if(!empty($this->model->check_admin($email,$password)))
+        {
+            
+            $_SESSION['validation']='admin';
+        }
+        else
+            
+            unset($_SESSION['validation']);
+    }
 }
