@@ -23,4 +23,8 @@ class admin
 	{
 		return $this->db->where('id',$id)->delete('admins');
 	}
+	public function check_admin($email,$password)
+	{
+		return $this->db->where("email",$email)->where('password',$password)->getone("admins");
+	}
 }
